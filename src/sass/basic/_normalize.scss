@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    line-height: normal;
+}
+
+li {
+    list-style: none;
+    line-height: normal;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}

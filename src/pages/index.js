@@ -1,0 +1,6 @@
+export { default as Auction } from './AuctionPage'
+export { default as Contest } from './ContestPage'
+export { default as Grant } from './GrantPage'
+export { default as Home } from './HomePage'
+export { default as NotFound } from './HomePage'
+export { default as Tender } from './TenderPage'
