@@ -75,16 +75,22 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
+import { Link } from '@mui/material';
 
-console.log(React.version);
 
-const pages = ['Products', 'Pricing', 'Blog'];
+
+const pages = [
+  {to: '/', text: 'Главная'},
+  {to: '/contest', text: 'Конкурсы'},
+  {to: '/auction', text: 'Аукционы'},
+  {to: '/tender', text: 'Тендеры'},
+  {to: '/grant', text: 'Гранты'}
+]
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -102,12 +108,12 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <div className='container'>
+    <div className='wrapper'>
       <AppBar position="static" className='app-bar'>
-      <Container maxWidth="xl">
-        <Toolbar className='toolbar' disableGutters>
+      <Container maxWidth="xl" >
+        <Toolbar className='toolbar' disableGutters sx={{border: '1px solid black', display: 'flex',}}>
           <div className='cont-row'>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{  display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -133,13 +139,14 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none',},
+                padding: '20px'
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link key={page.to} href={page.to} onClick={handleCloseNavMenu} sx={{textDecoration: 'none'}}>
+                  <Typography textAlign="center">{page.text}</Typography>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -147,7 +154,7 @@ function ResponsiveAppBar() {
               variant="h6"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
+              href="/"
               sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -162,12 +169,12 @@ function ResponsiveAppBar() {
           </Typography>
           </div>
           <div className='cont'>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
@@ -177,20 +184,16 @@ function ResponsiveAppBar() {
               color: 'inherit',
               textDecoration: 'none',
             }}
-          >
+            >
             Tenders.kg
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '50px' } }}>
+              {pages.map((page) => (
+                <Link key={page.to} underline="none" href={page.to} sx={{ my: 2, color: 'white', display: 'block', fontSize: '50px' }}>
+                  <Typography textAlign="center">{page.text}</Typography>
+                </Link>
+              ))}
+            </Box>
           </div>
         </Toolbar>
       </Container>
