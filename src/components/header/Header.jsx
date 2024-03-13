@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const pages = [
   { to: '/', text: 'Главная' },
@@ -34,7 +34,7 @@ function ResponsiveAppBar() {
   const theme = createTheme({
     typography: {
       fontFamily: [
-        'Rubik', 
+        'Times New Roman', 
         'sans-serif',
       ].join(','),
     },
@@ -78,8 +78,8 @@ function ResponsiveAppBar() {
                   }}
                 >
                   {pages.map((page) => (
-                    <Link key={page.to} href={page.to} onClick={handleCloseNavMenu} sx={{ textDecoration: 'none', fontFamily: 'Rubik' }}>
-                      <Typography textAlign="center">{page.text}</Typography>
+                    <Link key={page.to} to={page.to} onClick={handleCloseNavMenu} sx={{ textDecoration: 'none', fontFamily: 'Times New Roman' }}>
+                      {page.text}
                     </Link>
                   ))}
                   <Stack direction="column" spacing={2} sx={{ width: '100%' }}>
@@ -132,8 +132,8 @@ function ResponsiveAppBar() {
               </Typography>
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '50px' } }}>
                 {pages.map((page) => (
-                  <Link key={page.to} underline="none" href={page.to} sx={{ my: 2, color: 'white', display: 'block', fontSize: '50px' }}>
-                    <Typography textAlign="center">{page.text}</Typography>
+                  <Link key={page.to} underline="none" to={page.to} style={{ color: '#fff', fontSize: '18px' }}>
+                    {page.text}
                   </Link>
                 ))}
               </Box>
