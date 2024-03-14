@@ -1,4 +1,3 @@
-import React from 'react'
 import Auction from '../components/auction/Auction'
 
 function AuctionPage() {

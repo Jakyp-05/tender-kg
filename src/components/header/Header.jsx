@@ -1,19 +1,19 @@
-import * as React from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Collapse, List, ListItemButton, ListItemText } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const pages = [
-  { to: '/', text: 'Главная' },
   { to: '/contest', text: 'Конкурсы' },
   { to: '/auction', text: 'Аукционы' },
   { to: '/tender', text: 'Тендеры' },
@@ -21,134 +21,109 @@ const pages = [
 ];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [open, setOpen] = React.useState(true);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
+  const handleClick = () => {
+    setOpen(!open);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  React.useEffect(() => {
+    setOpen(false);
+  }, [matches])
 
-  const theme = createTheme({
-    typography: {
-      fontFamily: [
-        'Times New Roman', 
-        'sans-serif',
-      ].join(','),
-    },
-  });
+
+  const hideBgColor = {
+    '&:hover': {
+      background: 'none'
+    }
+  }
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className='wrapper'>
-      <AppBar position="static" className='app-bar'>
+    <div className='wrapper'>
+      <AppBar position="static" className='app-bar' sx={{ background: "#44ACE9", }}>
         <Container maxWidth="xl">
-          <Toolbar className='toolbar' disableGutters sx={{display: 'flex', justifyContent: 'space-between' }}>
+          <Toolbar className='toolbar' disableGutters sx={{ display: 'flex', justifyContent: "space-between" }}>
             <div className='cont-row'>
-              <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleOpenNavMenu}
-                  color="inherit"
+              <Box className="mobile" sx={{ display: { xs: 'flex', md: 'none' } }}>
+                <List
+                  sx={{ width: '100%', maxWidth: 360, bgcolor: '#44ACE9' }}
+                  component="nav"
+                  aria-labelledby="nested-list-subheader"
                 >
-                  <MenuIcon />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorElNav}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left'
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left'
-                  }}
-                  open={Boolean(anchorElNav)}
-                  onClose={handleCloseNavMenu}
-                  sx={{
-                    display: { xs: 'block', md: 'none' },
-                    padding: '20px'
-                  }}
-                >
-                  {pages.map((page) => (
-                    <Link key={page.to} to={page.to} onClick={handleCloseNavMenu} sx={{ textDecoration: 'none', fontFamily: 'Times New Roman' }}>
-                      {page.text}
-                    </Link>
-                  ))}
-                  <Stack direction="column" spacing={2} sx={{ width: '100%' }}>
-                    <Button variant="text" href="#contained-buttons">
-                      Link1
-                    </Button>
-                    <Button variant="text" href="#contained-buttons">
-                      Link2
-                    </Button>
-                  </Stack>
-                </Menu>
+                  <IconButton
+                    size="large"
+                    aria-label="account of current user"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                    color="inherit"
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </List>
               </Box>
-
               <Typography
                 variant="h6"
-                noWrap
-                component="a"
-                href="/"
+                component={Link}
+                to="/"
                 sx={{
-                  mr: 2,
+                  mr: "85px",
                   display: { xs: 'none', md: 'flex' },
-                  fontFamily: 'monospace',
                   fontWeight: 700,
                   letterSpacing: '.3rem',
                   color: 'inherit',
-                  textDecoration: 'none'
                 }}
               >
                 Tenders.kg
               </Typography>
             </div>
-            <div className='cont'>
+            <Box sx={{ flexGrow: 1 }}>
               <Typography
                 variant="h5"
                 noWrap
-                component="a"
-                href="/"
+                component={Link}
+                to="/"
                 sx={{
                   mr: 2,
                   display: { xs: 'flex', md: 'none' },
-                  flexGrow: 1,
-                  fontFamily: 'monospace',
                   fontWeight: 700,
                   letterSpacing: '.3rem',
                   color: 'inherit',
-                  textDecoration: 'none'
                 }}
               >
                 Tenders.kg
               </Typography>
-              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '50px' } }}>
+              <Box sx={{ display: { xs: 'none', md: 'flex', gap: '30px' } }}>
                 {pages.map((page) => (
-                  <Link key={page.to} underline="none" to={page.to} style={{ color: '#fff', fontSize: '18px' }}>
+                  <Link key={page.to} to={page.to} style={{ color: '#fff', fontSize: '18px' }}>
                     {page.text}
                   </Link>
                 ))}
               </Box>
-            </div>
+            </Box>
             <Stack direction="row" spacing={2} sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Button variant="contained" href='/enter'>Войти</Button>
-              <Button variant="contained" href="/register">
+              <Button sx={hideBgColor} variant="text" color='inherit' component={Link} to='/enter'>Войти</Button>
+              <Button sx={hideBgColor} variant="outlined" component={Link} color='inherit' to="/register">
                 Регистрация
               </Button>
             </Stack>
           </Toolbar>
         </Container>
       </AppBar>
+      <Collapse sx={{ width: "100%", bgcolor: '#44ACE9' }} in={open} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          {pages.map((page) => (
+            <ListItemButton sx={{ pl: 4 }} key={page.to} >
+              <Link to={page.to} style={{ color: '#fff', fontSize: '18px' }}>
+                {page.text}
+              </Link>
+            </ListItemButton>
+          ))}
+        </List>
+      </Collapse>
     </div>
-    </ThemeProvider>
   );
 }
 export default ResponsiveAppBar;
