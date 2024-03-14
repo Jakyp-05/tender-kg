@@ -14,14 +14,15 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
 const pages = [
+  { to: '/tender', text: 'Тендеры' },
   { to: '/contest', text: 'Конкурсы' },
   { to: '/auction', text: 'Аукционы' },
-  { to: '/tender', text: 'Тендеры' },
   { to: '/grant', text: 'Гранты' }
 ];
 
 function ResponsiveAppBar() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const [activeMenu, setActiveMenu] = React.useState("Тендеры")
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
 
@@ -42,9 +43,11 @@ function ResponsiveAppBar() {
 
   return (
     <div className='wrapper'>
-      <AppBar position="static" className='app-bar' sx={{ background: "#44ACE9", }}>
+      <AppBar position="static" className='app-bar' sx={{ background: "#44ACE9", height: "64px" }}>
         <Container maxWidth="xl">
-          <Toolbar className='toolbar' disableGutters sx={{ display: 'flex', justifyContent: "space-between" }}>
+          <Toolbar className='toolbar' disableGutters sx={{
+            display: 'flex', justifyContent: "space-between",
+          }}>
             <div className='cont-row'>
               <Box className="mobile" sx={{ display: { xs: 'flex', md: 'none' } }}>
                 <List
@@ -82,7 +85,6 @@ function ResponsiveAppBar() {
             <Box sx={{ flexGrow: 1 }}>
               <Typography
                 variant="h5"
-                noWrap
                 component={Link}
                 to="/"
                 sx={{
@@ -95,9 +97,13 @@ function ResponsiveAppBar() {
               >
                 Tenders.kg
               </Typography>
-              <Box sx={{ display: { xs: 'none', md: 'flex', gap: '30px' } }}>
+              <Box className="nav" sx={{ display: { xs: 'none', md: 'flex', } }}>
                 {pages.map((page) => (
-                  <Link key={page.to} to={page.to} style={{ color: '#fff', fontSize: '18px' }}>
+                  <Link
+                    onClick={() => setActiveMenu(page.text)}
+                    className={activeMenu === page.text ? "active" : ""}
+                    key={page.to} to={page.to}
+                    style={{ color: '#fff', fontSize: '18px' }}>
                     {page.text}
                   </Link>
                 ))}
@@ -113,9 +119,15 @@ function ResponsiveAppBar() {
         </Container>
       </AppBar>
       <Collapse sx={{ width: "100%", bgcolor: '#44ACE9' }} in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
+        <List className='nav2' component="div" disablePadding>
           {pages.map((page) => (
-            <ListItemButton sx={{ pl: 4 }} key={page.to} >
+            <ListItemButton
+              className={activeMenu === page.text ? "active2" : ""}
+              onClick={() => {
+                setActiveMenu(page.text)
+                setOpen(false);
+              }}
+              sx={{ pl: 4 }} key={page.to} >
               <Link to={page.to} style={{ color: '#fff', fontSize: '18px' }}>
                 {page.text}
               </Link>

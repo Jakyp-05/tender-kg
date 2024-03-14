@@ -1,3 +1,23 @@
 .wrapper {
 	padding-top: 25px;
+	.app-bar {
+		overflow: hidden;
+	}
+	.nav {
+		a {
+			padding: 22px 33px;
+      transition:  background-color .2s ease-in-out;
+			&:hover {
+				background-color: #367ea9 !important;
+			}
+			&.active {
+				background-color: #367ea9 !important;
+			}
+		}
+	}
+	.nav2 {
+		.active2 {
+			background-color: #367ea9 !important;
+		}
+	}
 }
