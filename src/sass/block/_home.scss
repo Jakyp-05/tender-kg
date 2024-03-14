@@ -1,0 +1,12 @@
+.section {
+    padding: 20px 0;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .search-main {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
