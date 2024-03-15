@@ -18,20 +18,21 @@ import Dropdown from '@mui/joy/Dropdown';
 
 
 import InputBase from '@mui/material/InputBase';
+import { Container } from '@mui/material';
 
 function Home() {
   const SIZES = ['Тендеры', 'Конкурсы', 'Аукционы', 'Запросы коммерческих предложений', 'Запросы котировок', 'Запрос на выражение заинтересованности', 'Реализации', 'Запросы грантовых предложений', 'Прочие'];
 
   const [selectedIndex, setSelectedIndex] = React.useState(-1);
   return (
+    <Container maxWidth={'xl'}>
     <section className='section'>
-      <div className='container'>
         <Dropdown>
             <MenuButton  endDecorator={<ArrowDropDown />} sx={{background: '#44ACE9', color: '#fff', "&:hover": { backgroundColor: "#44ACE9" }}}>
               {selectedIndex !== -1 ? SIZES[selectedIndex] : "Показать фильтры"}
             </MenuButton>
-            <Menu sx={{minWidth: 160, '--ListItemDecorator-size': '24px' }}>
-              <ListItem nested>
+            <Menu sx={{minWidth: 160, '--ListItemDecorator-size': '24px', boxShadow: "none", background: 'transparent', border: 'none'}}>
+              <ListItem nested sx={{border: '1px solid black', borderRadius: '3px', ml: 23}}>
                 <List aria-label="Font sizes">
                   {SIZES.map((item, index) => (
                   <MenuItem
@@ -54,7 +55,7 @@ function Home() {
         </Dropdown>
         <div className='search-main'>
           <InputBase
-            sx={{mr: -2,flex: 1, border: '1px solid #44ACE9', outline: 'none', borderRadius: '3px', padding: '1px 20px' }}
+            sx={{mr: -2,flex: 1, border: '1px solid #44ACE9', outline: 'none', borderRadius: '3px', padding: '1px 20px', width: '600px' }}
             placeholder="Поиск....."
             inputProps={{ 'aria-label': 'search google maps' }}
           />
@@ -62,8 +63,8 @@ function Home() {
             <Button sx={{background: '#44ACE9', color: '#fff', "&:hover": { backgroundColor: "#44ACE9" },boxShadow: "none", borderRadius: '0 3px 3px 0' }} variant="contained">Искать</Button>
           </Stack>
         </div>
-      </div>
     </section>
+    </Container>
   )
 }
 
