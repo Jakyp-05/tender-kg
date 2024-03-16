@@ -12,7 +12,9 @@ function Footer() {
                     <Typography variant='h4' sx={{color: '#44ACE9'}}>Tenders.kg</Typography>
                     <div style={{marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '20px'}}> 
                         <start style={{display: 'flex', alignItems: 'center', gap: '20px'}}> 
-                            <Link href='https://www.youtube.com'><YouTube style={{color: 'red', fontSize: 40}}/></Link>
+                            <Link href='https://www.youtube.com/@tenderskg1506' target="_blank">
+                              <YouTube style={{color: 'red', fontSize: 40}}/>
+                              </Link>
                             <Link href='https://web.whatsapp.com/'><WhatsApp style={{color: 'green', fontSize: 40}}/></Link>
                         </start>
                         <div style={{display: 'flex', alignItems: 'center', gap: '15px'}}>

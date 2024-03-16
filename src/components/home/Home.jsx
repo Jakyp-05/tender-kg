@@ -24,8 +24,9 @@ function Home() {
   const SIZES = ['Тендеры', 'Конкурсы', 'Аукционы', 'Запросы коммерческих предложений', 'Запросы котировок', 'Запрос на выражение заинтересованности', 'Реализации', 'Запросы грантовых предложений', 'Прочие'];
 
   const [selectedIndex, setSelectedIndex] = React.useState(-1);
+  
   return (
-    <Container maxWidth={'xl'}>
+    <Container maxWidth={'xl'} className='main'>
     <section className='section'>
         <div className='search-main'>
           <InputBase

@@ -43,7 +43,7 @@ function ResponsiveAppBar() {
 
   return (
     <div className='wrapper'>
-      <AppBar position="static" className='app-bar' sx={{ background: "#44ACE9", height: "64px" }}>
+      <AppBar position="fixed" className='app-bar' sx={{ background: "#44ACE9", height: "64px" }}>
         <Container maxWidth="xl">
           <Toolbar className='toolbar' disableGutters sx={{
             display: 'flex', justifyContent: "space-between",
