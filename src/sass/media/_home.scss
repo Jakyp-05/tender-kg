@@ -9,12 +9,16 @@
 }
 
 @media (max-width: 992px) {
-    .section {
+    .section-filter {
         max-width: 992px;
         display: flex;
         align-items: flex-start;
         flex-direction: column-reverse;
         gap: 10px;
+    }
+    .collapse-home {
+        display: flex;
+        flex-direction: column;
     }
 }
 
