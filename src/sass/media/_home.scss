@@ -2,9 +2,9 @@
   .section {
     max-width: 1024px;
     .section-filter {
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: flex-start;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-start;
     }
     .search-main {
       max-width: 600px;
@@ -40,5 +40,6 @@
 @media (max-width: 425px) {
   .section {
     max-width: 425px;
+    width: 100%;
   }
 }

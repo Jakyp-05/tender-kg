@@ -17,9 +17,14 @@
             justify-content: space-between !important;
             .collapse {
                 width: calc(50% - 20px);
-                width: 400px;
+                width: 320px;
                 margin-bottom: 20px;
                 flex-shrink: 0;
+                .collapse-correct {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
             }
         }
     }
