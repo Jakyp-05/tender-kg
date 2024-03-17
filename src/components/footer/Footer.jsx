@@ -13,7 +13,7 @@ function Footer() {
           sx={{ display: "flex", justifyContent: "space-between" }}
           spacing={3}
         >
-          <Grid xs={12} sm={6} md={4} lg={3} mb={5} mt={5} className="footer-size">
+          <Grid item xs={12} sm={6} md={4} lg={3} mb={5} mt={5} className="footer-size">
             <RouterLink
               to="/"
               style={{ textDecoration: "none", color: "inherit" }}
@@ -58,7 +58,7 @@ function Footer() {
               </Typography>
             </div>
           </Grid>
-          <Grid  xs={12} sm={6} md={4} lg={3} mb={5} mt={7} className="footer-size">
+          <Grid item xs={12} sm={6} md={4} lg={3} mb={5} mt={7} className="footer-size">
             <Typography variant="h4" sx={{ color: "#44ACE9", fontSize: '1.5rem' }}>
               Полезные ссылки
             </Typography>
@@ -79,7 +79,7 @@ function Footer() {
               </Typography>
             </div>
           </Grid>
-          <Grid xs={12} sm={6} md={4} lg={3} mb={5} mt={7} className="footer-size">
+          <Grid item xs={12} sm={6} md={4} lg={3} mb={5} mt={7} className="footer-size">
             <Typography variant="h4" sx={{ color: "#44ACE9", fontSize: '1.5rem' }}>
               Узнать больше
             </Typography>
