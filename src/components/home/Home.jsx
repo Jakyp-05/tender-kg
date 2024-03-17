@@ -119,14 +119,14 @@ function Home() {
                       maxWidth="300px"
                       value={periodOptions}
                       onChange={handlePeriodChange}
-                      sx={{ width: "350px" }}
+                      sx={{ width: "320px" }}
                     />
                   </div>
                 </LocalizationProvider>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <div className="collapse-correct">
                     <p>Статусы:</p>
-                    <FormControl sx={{ minWidth: 350 }}>
+                    <FormControl sx={{ minWidth: 320 }}>
                       <Select
                         multiple
                         value={statusOptions}
@@ -173,7 +173,7 @@ function Home() {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <div className="collapse-correct">
                     <p>Локация:</p>
-                    <FormControl sx={{ minWidth: 350 }}>
+                    <FormControl sx={{ minWidth: 320 }}>
                       <Select
                         multiple
                         value={locationOptions}
@@ -218,7 +218,7 @@ function Home() {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <div className="collapse-correct">
                     <p>Способ подачи заявок:</p>
-                    <FormControl sx={{ minWidth: 350 }}>
+                    <FormControl sx={{ minWidth: 320 }}>
                       <Select
                         multiple
                         value={submissionOptions}
@@ -261,7 +261,7 @@ function Home() {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <div className="collapse-correct">
                     <p>Категории:</p>
-                    <FormControl sx={{ minWidth: 350 }}>
+                    <FormControl sx={{ minWidth: 320}}>
                       <Select
                         multiple
                         value={categoryOptions}
