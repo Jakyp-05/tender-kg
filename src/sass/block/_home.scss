@@ -14,16 +14,18 @@
             max-width: 1485px;
             width: 100%;
             display: flex;
-            justify-content: space-between !important;
             .collapse {
                 width: calc(50% - 20px);
                 width: 320px;
                 margin-bottom: 20px;
+                margin-right: 30px;
                 flex-shrink: 0;
                 .collapse-correct {
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
                 }
             }
         }

@@ -22,7 +22,7 @@ import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 
 function Home() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const [periodOptions, setPeriodOptions] = React.useState([]);
   const [statusOptions, setStatusOptions] = React.useState([]);
   const [categoryOptions, setCategoryOptions] = React.useState([]);
