@@ -1,3 +1,4 @@
+export { default as About} from './AboutPage'
 export { default as Auction } from './AuctionPage'
 export { default as Contest } from './ContestPage'
 export { default as Grant } from './GrantPage'
