@@ -1,0 +1,17 @@
+.about-content {
+  padding: 20px 0;
+  margin-bottom: 30px;
+  .about-container {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    .about-title {
+      display: flex;
+      flex-direction: column;
+      .about-text {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
