@@ -25,7 +25,7 @@ function About() {
                 Код: НСКР: 004
               </Typography>
               <Typography variant="p" gutterBottom>
-                Email: info@tenders.com
+                Email: <a href="https://top.mail.ru/visits?id=3268894&from=jumpfrom" target="_blank">info@tenders.com</a>
               </Typography>
             </div>
           </div>
@@ -52,7 +52,7 @@ function About() {
             </Typography>
             <div className="about-text">
               <Typography variant="p" gutterBottom>
-                Email: info@tenders.kg
+                Email: <a href="https://top.mail.ru/visits?id=3268894&from=jumpfrom" target="_blank">info@tenders.kg</a>
               </Typography>
             </div>
           </div>
