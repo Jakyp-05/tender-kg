@@ -1,6 +1,6 @@
 import Layout from './components/layout/Layout'
 import { Route, Routes } from 'react-router-dom'
-import { About, Auction, Contest, Grant, Home, NotFound, Tender } from './pages'
+import { About, Auction, Contest, Grant, Home, NotFound, Tender, Term } from './pages'
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
           <Route path='/contest' element={<Contest />}/>
           <Route path='/grant' element={<Grant />}/>
           <Route path='/tender' element={<Tender />}/>
+          <Route path='/term' element={<Term />}/>
           <Route path='*' element={<NotFound />}/>
         </Route>
       </Routes>
