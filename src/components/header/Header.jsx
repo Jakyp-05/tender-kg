@@ -1,5 +1,5 @@
 import MenuIcon from '@mui/icons-material/Menu';
-import { Collapse, List, ListItemButton, ListItemText } from '@mui/material';
+import { Collapse, List, ListItemButton } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -42,7 +42,7 @@ function ResponsiveAppBar() {
   }
 
   return (
-    <div className='wrapper'>
+    <Box className='wrapper' mb={open ? "100px" : ""}>
       <AppBar position="fixed" className='app-bar' sx={{ background: "#44ACE9", height: "64px" }}>
         <Container maxWidth="xl">
           <Toolbar className='toolbar' disableGutters sx={{
@@ -118,7 +118,7 @@ function ResponsiveAppBar() {
           </Toolbar>
         </Container>
       </AppBar>
-      <Collapse sx={{ width: "100%", bgcolor: '#44ACE9' }} in={open} timeout="auto" unmountOnExit>
+      <Collapse sx={{ width: "100%", bgcolor: '#44ACE9', }} in={open} timeout="auto" unmountOnExit>
         <List className='nav2' component="div" disablePadding>
           {pages.map((page) => (
             <ListItemButton
@@ -135,7 +135,7 @@ function ResponsiveAppBar() {
           ))}
         </List>
       </Collapse>
-    </div>
+    </Box>
   );
 }
 export default ResponsiveAppBar;
