@@ -99,7 +99,7 @@ function Footer() {
                   О нас
                 </Typography>
               </RouterLink>
-              <RouterLink to='/term' style={{ textDecoration: "none", color: "inherit" }}>
+              <RouterLink to='/terms' style={{ textDecoration: "none", color: "inherit" }}>
                 <Typography variant="subtitle1" gutterBottom>
                   Пользовательское соглашение
                 </Typography>

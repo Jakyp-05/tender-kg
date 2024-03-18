@@ -13,7 +13,7 @@ function App() {
           <Route path='/contest' element={<Contest />}/>
           <Route path='/grant' element={<Grant />}/>
           <Route path='/tender' element={<Tender />}/>
-          <Route path='/term' element={<Term />}/>
+          <Route path='/terms' element={<Term />}/>
           <Route path='*' element={<NotFound />}/>
         </Route>
       </Routes>
