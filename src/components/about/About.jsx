@@ -3,14 +3,14 @@ import React from "react";
 
 function About() {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth='lg'>
       <div className="about-content">
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h5" textAlign='center' gutterBottom>
           О нас
         </Typography>
         <div className="about-container">
           <div className="about-title">
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" textAlign='center' gutterBottom>
               ОсОО "ИВТ Лаб".
             </Typography>
             <div className="about-text">
@@ -30,7 +30,7 @@ function About() {
             </div>
           </div>
           <div className="about-title">
-            <Typography variant="h6" gutterBottom>
+            <Typography  variant="h6" textAlign='center' gutterBottom>
               Банковские реквизиты:
             </Typography>
             <div className="about-text">
