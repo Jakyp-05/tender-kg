@@ -42,7 +42,7 @@ function ResponsiveAppBar() {
   }
 
   return (
-    <Box className='wrapper' mb={open ? "100px" : ""}>
+    <Box className='wrapper' mb={open ? "138px" : ""}>
       <AppBar position="fixed" className='app-bar' sx={{ background: "#44ACE9", height: "64px" }}>
         <Container maxWidth="xl">
           <Toolbar className='toolbar' disableGutters sx={{
@@ -118,7 +118,10 @@ function ResponsiveAppBar() {
           </Toolbar>
         </Container>
       </AppBar>
-      <Collapse sx={{ width: "100%", bgcolor: '#44ACE9', }} in={open} timeout="auto" unmountOnExit>
+      <Collapse sx={{
+        width: "100%", bgcolor: '#44ACE9',
+        mt: open? "38px": ""
+        }} in={open} timeout="auto" unmountOnExit>
         <List className='nav2' component="div" disablePadding>
           {pages.map((page) => (
             <ListItemButton

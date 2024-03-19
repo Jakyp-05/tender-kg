@@ -1,14 +1,14 @@
-@import './basic/all', './block/all', './media/all';
+@import "./basic/all", "./block/all", "./media/all";
 
-
-html, body {
-    height: 100%;
+html,
+body {
+	min-height: 100svh;
 }
 
 .wrapper {
-    height: 65px;
- }
+	height: 65px;
+}
 
 .main {
-    height: calc(100% - 65px);
+	min-height: calc(100% - 65px);
 }
