@@ -116,7 +116,7 @@ const Footer = () => {
               </Typography>
               <Typography variant="subtitle1" gutterBottom>
                 Поставщики товаров и услуг могут{" "}
-                <a href="#" style={{ color: "#44ace9" }}>
+                <a href="/login" style={{ color: "#44ace9" }}>
                   "Подписаться на уведовление"
                 </a>{" "}
                 для рассылки новых интересующих поставщиков объновлений

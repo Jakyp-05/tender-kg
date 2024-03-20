@@ -1,0 +1,14 @@
+.auth-register {
+    padding: 30px;
+  .auth-container {
+    padding: 0 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .auth-right {
+      margin-left: 189px;
+    }
+  }
+}
