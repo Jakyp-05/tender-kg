@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
@@ -69,7 +69,7 @@ function ResponsiveAppBar() {
               </Box>
               <Typography
                 variant="h6"
-                component={Link}
+                component={NavLink}
                 to="/"
                 sx={{
                   mr: "85px",
@@ -85,7 +85,7 @@ function ResponsiveAppBar() {
             <Box sx={{ flexGrow: 1 }}>
               <Typography
                 variant="h5"
-                component={Link}
+                component={NavLink}
                 to="/"
                 sx={{
                   mr: 2,
@@ -99,19 +99,18 @@ function ResponsiveAppBar() {
               </Typography>
               <Box className="nav" sx={{ display: { xs: 'none', md: 'flex', } }}>
                 {pages.map((page) => (
-                  <Link
+                  <NavLink
                     onClick={() => setActiveMenu(page.text)}
-                    className={activeMenu === page.text ? "active" : ""}
                     key={page.to} to={page.to}
                     style={{ color: '#fff', fontSize: '18px' }}>
                     {page.text}
-                  </Link>
+                  </NavLink>
                 ))}
               </Box>
             </Box>
             <Stack direction="row" spacing={2} sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Button sx={hideBgColor} variant="text" color='inherit' component={Link} to='/enter'>Войти</Button>
-              <Button sx={hideBgColor} variant="outlined" component={Link} color='inherit' to="/register">
+              <Button sx={hideBgColor} variant="text" color='inherit' component={NavLink} to='/login'>Войти</Button>
+              <Button sx={hideBgColor} variant="outlined" component={NavLink} color='inherit' to="/registration">
                 Регистрация
               </Button>
             </Stack>
@@ -127,13 +126,12 @@ function ResponsiveAppBar() {
             <ListItemButton
               className={activeMenu === page.text ? "active2" : ""}
               onClick={() => {
-                setActiveMenu(page.text)
                 setOpen(false);
               }}
               sx={{ pl: 4 }} key={page.to} >
-              <Link to={page.to} style={{ color: '#fff', fontSize: '18px' }}>
+              <NavLink to={page.to} style={{ color: '#fff', fontSize: '18px' }}>
                 {page.text}
-              </Link>
+              </NavLink>
             </ListItemButton>
           ))}
         </List>

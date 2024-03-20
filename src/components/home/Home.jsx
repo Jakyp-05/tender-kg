@@ -50,7 +50,7 @@ function Home() {
   };
 
   return (
-    <Container maxWidth={"xl"} className="main">
+    <Container maxWidth={"xl"}>
       <section className="section">
         <div className="section-filter">
           <List
@@ -58,7 +58,7 @@ function Home() {
             component="nav"
             aria-labelledby="nested-list-subheader"
           >
-            <ListItemButton 
+            <ListItemButton
               sx={{
                 background: "#44ACE9",
                 color: "white",
