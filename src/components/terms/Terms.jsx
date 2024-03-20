@@ -3,7 +3,7 @@ import React from "react";
 
 function Terms() {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth='xl'>
       <div className="term-container">
         <Typography variant="h5">Пользовательское соглашение</Typography>
         <Typography variant="h6">
