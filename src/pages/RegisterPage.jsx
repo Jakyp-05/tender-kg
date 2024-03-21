@@ -1,5 +1,5 @@
 import React from 'react'
-import Registration from '../components/auth/register/Registration'
+import Registration from '../components/auth/registration/Registration'
 
 function RegisterPage() {
   return (
