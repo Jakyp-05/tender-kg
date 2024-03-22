@@ -1,75 +1,108 @@
-import {
-  Button,
-  Checkbox,
-  FormControlLabel,
-  Grid,
-  Link,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
-import React from "react";
+import { Box, Button, Container, Link, Typography } from "@mui/material";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import TextFields from "./TextFields";
+import CheckField from "./CheckField";
+import { pawdRegExp } from "../utils/Utils";
 
-function Login() {
-  const paperStyle = {
-    width: 483,
-    margin: "20px auto",
-    padding: "0 0 20px 0",
-    borderRadius: 3,
+// create schema validation
+const schema = yup.object({
+  email: yup.string().required("Email is required").email(),
+  passowrd: yup
+    .string()
+    .required("Password is required")
+    .matches(
+      pawdRegExp,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+    ),
+  privacy: yup.bool().oneOf([true], "Field must ber checked"),
+});
+
+const Login = () => {
+  const {
+    handleSubmit,
+    reset,
+    control,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver: yupResolver(schema),
+  });
+
+  const handleClick = (data) => {
+    console.log(data);
+    reset();
   };
+
   return (
-    <div className="auth-register">
-      <Grid>
-        <Paper elevation={20} style={paperStyle}>
+    <Container maxWidth="xl" sx={{ my: "4rem" }}>
+      <div
+        style={{
+          border: "1px solid #C4C4C4",
+          maxWidth: "483px",
+          width: "100%",
+          margin: "0 auto",
+          borderRadius: "3px",
+        }}
+      >
+        <div style={{ padding: "20px", background: "#44ACE9" }}>
           <Typography
-            sx={{
-              background: "#44ACE9",
-              color: "white",
-              padding: "13px",
-              borderRadius: "3px 3px 0 0",
-            }}
-            variant="h5"
-            textAlign="center"
+            variant="h1"
+            fullWidth
+            sx={{ fontSize: "20px", textAlign: "center", color: "#fff" }}
           >
             Войти
           </Typography>
-          <div className="auth-container">
-            <TextField
-              label="Имя"
-              type="text"
-              placeholder="Введите ваше имя"
-              fullWidth
-              required
-            />
-            <TextField
-              label="Email адрес"
-              type="email"
-              placeholder="Введите ваш email"
-              fullWidth
-              required
-            />
-            <div>
-              <div style={{textAlign: 'end'}}>
-                <Typography>Забыли пароль?</Typography>
-              </div>
-              <div>
-                <FormControlLabel
-                  control={<Checkbox />}
-                  label="Запомнить"
-                />
-              </div>
-            </div>
-            <Button type="submit" color="primary" variant="contained" fullWidth sx={{background:'#44ACE9', '&:hover' : {background:'#44ACE9'}}}>
-              Отправить
-            </Button>
-            <Typography className="auth-right-login" sx={{textAlign: 'end'}}>
-              <Link href="/registration">Регистрация</Link>
-            </Typography>
-          </div>
-        </Paper>
-      </Grid>
-    </div>
+        </div>
+        <Box
+          component="form"
+          onSubmit={handleSubmit(handleClick)}
+          sx={{ width: "100%", mt: "2re", padding: "20px" }}
+        >
+          <TextFields
+            name="email"
+            control={control}
+            errors={errors}
+            label="Email адрес"
+          />
+          <TextFields
+            name="password"
+            control={control}
+            errors={errors}
+            label="Пароль"
+          />
+          <Typography sx={{ textAlign: "end", cursor: "pointer" }}>
+            <Link>Забыли пароль</Link>
+          </Typography>
+          <CheckField
+            name="privacy"
+            control={control}
+            errors={errors}
+            label="Запомнить"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{
+              my: "1rem",
+              background: "#44ACE9",
+              height: "37px",
+            }}
+          >
+            Отправить
+          </Button>
+          <Typography sx={{ textAlign: "end", mb: "0.5rem" }}>
+            <Link href="/login">Регистрация</Link>
+          </Typography>
+        </Box>
+      </div>
+    </Container>
   );
-}
+};
 
 export default Login;
