@@ -48,12 +48,7 @@ const Registration = () => {
   };
 
   return (
-    <Container
-      maxWidth="xl"
-      sx={{
-        my: "4rem",
-      }}
-    >
+    <Container maxWidth="xl">
       <div
         style={{
           border: "1px solid #C4C4C4",
@@ -61,6 +56,7 @@ const Registration = () => {
           width: "100%",
           margin: "0 auto",
           borderRadius: "3px",
+          marginTop: "64px",
         }}
       >
         <div style={{ padding: "20px", background: "#44ACE9" }}>
@@ -75,7 +71,7 @@ const Registration = () => {
         <Box
           component="form"
           onSubmit={handleSubmit(onSubmit)}
-          sx={{ width: "100%", mt: "2re", padding: "20px" }}
+          sx={{ width: "100%", padding: "20px" }}
         >
           <TextFields
             name="name"
@@ -109,7 +105,7 @@ const Registration = () => {
               name="privacy"
               label="Согласен с"
               link="Политика конфиденциальности"
-              href='/privacy'
+              href="/privacy"
             />
             <CheckFields
               control={control}
@@ -117,18 +113,18 @@ const Registration = () => {
               name="privacy"
               label="Принять условия"
               link="Пользовательское соглашение"
-              href='terms'
+              href="terms"
             />
           </div>
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: "1rem", mb: "1rem", background: '#44ACE9' }}
+            sx={{ background: "#44ACE9", mt: '1rem' }}
           >
             Отправить
           </Button>
-          <Typography sx={{ textAlign: "end", mb: "1rem" }}>
+          <Typography sx={{ textAlign: "end", mt: '1rem' }}>
             <Link href="/login">Вернуться на страницу логина</Link>
           </Typography>
         </Box>

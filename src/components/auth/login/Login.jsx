@@ -9,7 +9,7 @@ import { pawdRegExp } from "../utils/Utils";
 // create schema validation
 const schema = yup.object({
   email: yup.string().required("Email is required").email(),
-  passowrd: yup
+  password: yup
     .string()
     .required("Password is required")
     .matches(
@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ my: "4rem" }}>
+    <Container maxWidth="xl">
       <div
         style={{
           border: "1px solid #C4C4C4",
@@ -47,6 +47,7 @@ const Login = () => {
           width: "100%",
           margin: "0 auto",
           borderRadius: "3px",
+          marginTop: '64px',
         }}
       >
         <div style={{ padding: "20px", background: "#44ACE9" }}>
@@ -61,7 +62,7 @@ const Login = () => {
         <Box
           component="form"
           onSubmit={handleSubmit(handleClick)}
-          sx={{ width: "100%", mt: "2re", padding: "20px" }}
+          sx={{ width: "100%",  padding: "20px" }}
         >
           <TextFields
             name="email"
@@ -89,14 +90,13 @@ const Login = () => {
             fullWidth
             variant="contained"
             sx={{
-              my: "1rem",
               background: "#44ACE9",
-              height: "37px",
+              mt: '1rem'
             }}
           >
             Отправить
           </Button>
-          <Typography sx={{ textAlign: "end", mb: "0.5rem" }}>
+          <Typography sx={{ textAlign: "end", mt: '1rem' }}>
             <Link href="/login">Регистрация</Link>
           </Typography>
         </Box>
