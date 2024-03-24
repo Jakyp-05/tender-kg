@@ -78,16 +78,21 @@ function MyTable() {
                   <TableCell>
                     <Card variant="outlined" sx={{ marginBottom: "20px" }}>
                       <CardContent>
-                        {Object.keys(rowData.name).map((key, index) => (
-                          <Typography key={index}>
-                            {rowData.name[key]}
-                          </Typography>
-                        ))}
                         <div>
+                          <Typography>
+                            <strong>Тендер №20434.</strong> {rowData.name.name1}
+                          </Typography>
+                          <Typography>{rowData.name.name2}</Typography>
+                          <Typography>
+                            <strong>Способ подачи заявок:</strong>
+                            {rowData.name.name3}
+                          </Typography>
+                        </div>
+                        <div style={{ marginTop: "10px" }}>
                           <strong>Категории:</strong>
                           <Typography>{rowData.category}</Typography>
                         </div>
-                        <div>
+                        <div style={{ marginTop: "10px" }}>
                           <strong>Место поставки:</strong>
                           <Typography>{rowData.place}</Typography>
                         </div>
@@ -99,11 +104,15 @@ function MyTable() {
                           }}
                         >
                           <strong>Крайний срок:</strong>
-                          <div>
-                            <Typography style={{ color: "green" }}>
+                          <div style={{width: '170px', textAlign: "start"}}>
+                            <Typography
+                              style={{ color: "green", marginTop: "10px" }}
+                            >
                               {rowData.date.new}
                             </Typography>
-                            <Typography>{rowData.date.public}</Typography>
+                            <Typography style={{ marginTop: "10px" }}>
+                              {rowData.date.public}
+                            </Typography>
                             <div
                               style={{
                                 width: "135px",
@@ -111,6 +120,7 @@ function MyTable() {
                                 padding: "5px 10px",
                                 textAlign: "center",
                                 borderRadius: "3px",
+                                marginTop: '10px',
                                 ...getTextColor(rowData.date.status),
                               }}
                             >
