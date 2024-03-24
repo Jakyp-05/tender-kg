@@ -50,7 +50,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <Box className="wrapper" mb={open ? "138px" : ""}>
+    <Box className="wrapper" mb={open ? "230px" : ""}>
       <AppBar
         position="fixed"
         className="app-bar"
@@ -175,7 +175,7 @@ function ResponsiveAppBar() {
               onClick={() => {
                 setOpen(false);
               }}
-              sx={{ pl: 4}}
+              sx={{ pl: 4 }}
               key={page.to}
             >
               <NavLink to={page.to} style={{ color: "#fff", fontSize: "18px" }}>
