@@ -10,13 +10,13 @@ const CheckFields = ({ label, name, control, errors, link, href }) => {
         name={name}
         control={control}
         render={({ field }) => (
-          <div style={{display: 'flex', alignItems: 'center'}}>
+          <div className="regis-link">
             <FormControlLabel
               control={<Checkbox {...field} />}
               label={label}
               value="false"
             />
-            <Link href={href}>{link}</Link>
+            <Link className="link" href={href}>{link}</Link>
           </div>
         )}
       />

@@ -16,7 +16,7 @@ const Footer = () => {
   };
 
   return (
-    <footer style={{ background: "#D9D9D9", marginTop: "20px" }}>
+    <footer style={{ background: "#D9D9D9", marginTop: '82px' }}>
       <Container maxWidth="xl">
         <Grid
           container
