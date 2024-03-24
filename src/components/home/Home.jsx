@@ -21,6 +21,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 
+import MyTable from "../table/Table";
+
 function Home() {
   const [open, setOpen] = React.useState(false);
   const [periodOptions, setPeriodOptions] = React.useState([]);
@@ -104,11 +106,7 @@ function Home() {
           </div>
         </div>
         <div className="section-collapse">
-          <Collapse
-            in={open}
-            timeout="auto"
-            unmountOnExit
-          >
+          <Collapse in={open} timeout="auto" unmountOnExit>
             <div className="collapse-home">
               <div className="collapse">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -261,7 +259,7 @@ function Home() {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <div className="collapse-correct">
                     <p>Категории:</p>
-                    <FormControl sx={{ minWidth: 320}}>
+                    <FormControl sx={{ minWidth: 320 }}>
                       <Select
                         multiple
                         value={categoryOptions}
@@ -307,6 +305,9 @@ function Home() {
             </div>
           </Collapse>
         </div>
+      </section>
+      <section className="section-table">
+        <MyTable />
       </section>
     </Container>
   );
