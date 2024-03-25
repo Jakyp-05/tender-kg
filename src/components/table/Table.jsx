@@ -54,130 +54,160 @@ function MyTable() {
   };
 
   return (
-    <TableContainer component={Paper}>
-      <Table>
-        <TableHead sx={{ background: "#44ACE9" }}>
-          {!isSmallScreen && (
-            <TableRow>
-              {rowsName.map((el, index) => (
-                <TableCell key={index} sx={{ color: "#fff", fontSize: "18px" }}>
-                  {el}
-                </TableCell>
-              ))}
-            </TableRow>
-          )}
-        </TableHead>
-        <TableBody>
-          {rowsData.map((rowData, index) => (
-            <React.Fragment key={rowData.id}>
-              <TableRow
-                onClick={() => handleRowClick(rowData.id)}
-                style={{ cursor: "pointer" }}
-              >
-                {isSmallScreen ? (
-                  <TableCell>
-                    <Card variant="outlined" sx={{ marginBottom: "20px" }}>
-                      <CardContent>
-                        <div>
-                          <Typography>
-                            <strong>Тендер №20434.</strong> {rowData.name.name1}
-                          </Typography>
-                          <Typography>{rowData.name.name2}</Typography>
-                          <Typography>
-                            <strong>Способ подачи заявок:</strong>
-                            {rowData.name.name3}
-                          </Typography>
-                        </div>
-                        <div style={{ marginTop: "10px" }}>
-                          <strong>Категории:</strong>
-                          <Typography>{rowData.category}</Typography>
-                        </div>
-                        <div style={{ marginTop: "10px" }}>
-                          <strong>Место поставки:</strong>
-                          <Typography>{rowData.place}</Typography>
-                        </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            marginTop: "20px",
-                          }}
-                        >
-                          <strong>Крайний срок:</strong>
-                          <div style={{width: '170px', textAlign: "start"}}>
-                            <Typography
-                              style={{ color: "green", marginTop: "10px" }}
-                            >
-                              {rowData.date.new}
+    <>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead sx={{ background: "#44ACE9" }}>
+            {!isSmallScreen && (
+              <TableRow>
+                {rowsName.map((el, index) => (
+                  <TableCell
+                    key={index}
+                    sx={{ color: "#fff", fontSize: "18px" }}
+                  >
+                    {el}
+                  </TableCell>
+                ))}
+              </TableRow>
+            )}
+          </TableHead>
+          <TableBody>
+            {records.map((rowData, index) => (
+              <React.Fragment key={rowData.id}>
+                <TableRow
+                  onClick={() => handleRowClick(rowData.id)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {isSmallScreen ? (
+                    <TableCell>
+                      <Card variant="outlined" sx={{ marginBottom: "20px" }}>
+                        <CardContent>
+                          {Object.keys(rowData.name).map((key, index) => (
+                            <Typography key={index}>
+                              {rowData.name[key]}
                             </Typography>
-                            <Typography style={{ marginTop: "10px" }}>
-                              {rowData.date.public}
-                            </Typography>
-                            <div
-                              style={{
-                                width: "135px",
-                                boxSizing: "border-box",
-                                padding: "5px 10px",
-                                textAlign: "center",
-                                borderRadius: "3px",
-                                marginTop: '10px',
-                                ...getTextColor(rowData.date.status),
-                              }}
-                            >
-                              <Typography style={{ color: "#1B1B1B" }}>
-                                {TenderStatus[rowData.date.status]}
+                          ))}
+                          <div>
+                            <strong>Категории:</strong>
+                            <Typography>{rowData.category}</Typography>
+                          </div>
+                          <div>
+                            <strong>Место поставки:</strong>
+                            <Typography>{rowData.place}</Typography>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              marginTop: "20px",
+                            }}
+                          >
+                            <strong>Крайний срок:</strong>
+                            <div>
+                              <Typography style={{ color: "green" }}>
+                                {rowData.date.new}
                               </Typography>
+                              <Typography>{rowData.date.public}</Typography>
+                              <div
+                                style={{
+                                  width: "135px",
+                                  boxSizing: "border-box",
+                                  padding: "5px 10px",
+                                  textAlign: "center",
+                                  borderRadius: "3px",
+                                  ...getTextColor(rowData.date.status),
+                                }}
+                              >
+                                <Typography style={{ color: "#1B1B1B" }}>
+                                  {TenderStatus[rowData.date.status]}
+                                </Typography>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </TableCell>
-                ) : (
-                  <>
-                    <TableCell>
-                      <Typography>
-                        <strong>Тендер №20434.</strong> {rowData.name.name1}
-                      </Typography>
-                      <Typography>{rowData.name.name2}</Typography>
-                      <Typography>
-                        <strong>Способ подачи заявок:</strong>
-                        {rowData.name.name3}
-                      </Typography>
+                        </CardContent>
+                      </Card>
                     </TableCell>
-                    <TableCell>{rowData.category}</TableCell>
-                    <TableCell>{rowData.place}</TableCell>
-                    <TableCell sx={{ width: "180px", textAlign: "center" }}>
-                      <Typography sx={{ color: "green", marginTop: "5px" }}>
-                        {rowData.date.new}
-                      </Typography>
-                      <Typography sx={{ marginTop: "10px" }}>
-                        {rowData.date.public}
-                      </Typography>
-                      <div
-                        style={{
-                          width: "100%",
-                          boxSizing: "border-box",
-                          padding: "5px 10px",
-                          textAlign: "center",
-                          borderRadius: "3px",
-                          marginTop: "10px",
-                          ...getTextColor(rowData.date.status),
-                        }}
-                      >
-                        <Typography style={{ color: "#1B1B1B" }}>
-                          {TenderStatus[rowData.date.status]}
+                  ) : (
+                    <>
+                      <TableCell>
+                        <Typography>
+                          <strong>Тендер №20434.</strong> {rowData.name.name1}
                         </Typography>
-                      </div>
-                    </TableCell>
-                  </>
-                )}
-              </TableRow>
-            </React.Fragment>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+                        <Typography>{rowData.name.name2}</Typography>
+                        <Typography>
+                          <strong>Способ подачи заявок:</strong>
+                          {rowData.name.name3}
+                        </Typography>
+                      </TableCell>
+                      <TableCell>{rowData.category}</TableCell>
+                      <TableCell>{rowData.place}</TableCell>
+                      <TableCell sx={{ width: "200px", textAlign: "center" }}>
+                        <Typography sx={{ color: "green", marginTop: "5px" }}>
+                          {rowData.date.new}
+                        </Typography>
+                        <Typography sx={{ marginTop: "10px" }}>
+                          {rowData.date.public}
+                        </Typography>
+                        <div
+                          style={{
+                            width: "100%",
+                            boxSizing: "border-box",
+                            padding: "5px 10px",
+                            textAlign: "center",
+                            borderRadius: "3px",
+                            marginTop: "10px",
+                            ...getTextColor(rowData.date.status),
+                          }}
+                        >
+                          <Typography style={{ color: "#1B1B1B" }}>
+                            {TenderStatus[rowData.date.status]}
+                          </Typography>
+                        </div>
+                      </TableCell>
+                    </>
+                  )}
+                </TableRow>
+              </React.Fragment>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <div
+        style={{
+          width: "324px",
+          margin: "0 auto",
+          marginTop: "20px",
+        }}
+      >
+        <Pagination
+          onChange={changPage}
+          count={npage}
+          variant="outlined"
+          shape="rounded"
+          sx={{
+            "& .MuiPaginationItem-root": {
+              border: "1px solid #44ACE9",
+              borderRadius: "3px",
+              margin: "0 2px",
+              color: "#333",
+              "&.Mui-selected": {
+                backgroundColor: "#44ACE9",
+                color: "#fff",
+              },
+            },
+            "& .MuiPaginationItem-ellipsis": {
+              border: "1px solid #44ACE9",
+              width: "30px",
+              height: "32px",
+              fontSize: "20px",
+              borderRadius: "3px",
+              margin: "0 2px",
+              color: "#333",
+            },
+          }}
+        />
+      </div>
+    </>
   );
 }
 
