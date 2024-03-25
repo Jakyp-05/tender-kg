@@ -12,6 +12,7 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
+  Pagination,
 } from "@mui/material";
 
 import rowsData from "./data";
@@ -21,6 +22,14 @@ function MyTable() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [selectedId, setSelectedId] = useState(null);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const recordsPage = 5;
+  const lastIndex = currentPage * recordsPage;
+  const firstIndex = lastIndex - recordsPage;
+  const records = rowsData.slice(firstIndex, lastIndex);
+  const npage = Math.ceil(rowsData.length / recordsPage);
+  const numbers = [...Array(npage + 1).keys()].slice(1);
 
   const TenderStatus = {
     ONE: "Приём заявок",
@@ -51,6 +60,10 @@ function MyTable() {
   const handleRowClick = (id) => {
     setSelectedId(id);
     alert(`Выбран id: ${id}`);
+  };
+
+  const changPage = (event, value) => {
+    setCurrentPage(value);
   };
 
   return (
