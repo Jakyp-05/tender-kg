@@ -1,37 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.cdnfonts.com/css/times-new-roman");
 
 *,
 ::after,
 ::before {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "Roboto", sans-serif !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", sans-serif !important;
 }
 
 html,
 body {
-	min-height: 100vh;
+  min-height: 100vh;
 }
 
 a {
-	text-decoration: none;
-	line-height: normal;
-	color: #000;
+  text-decoration: none;
+  line-height: normal;
+  color: #000;
 }
 
 li {
-	list-style: none;
-	line-height: normal;
+  list-style: none;
+  line-height: normal;
 }
 
 button {
-	border: none;
-	outline: none;
-	cursor: pointer;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 input,
 select {
-	outline: none;
+  outline: none;
 }

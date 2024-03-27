@@ -15,6 +15,7 @@ const CheckFields = ({ label, name, control, errors, link, href }) => {
               control={<Checkbox {...field} />}
               label={label}
               value="false"
+              sx={{marginRight: 0}}
             />
             <Link className="link" href={href}>{link}</Link>
           </div>
