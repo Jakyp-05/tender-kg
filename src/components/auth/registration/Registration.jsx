@@ -71,7 +71,7 @@ const Registration = () => {
         <Box
           component="form"
           onSubmit={handleSubmit(onSubmit)}
-          sx={{ width: "100%", padding: "20px" }}
+          sx={{ width: "100%", padding: "18px" }}
         >
           <TextFields
             name="name"
